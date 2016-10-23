@@ -1,140 +1,34 @@
 ---
 layout: page
-order: 10
-title: Contributing
+order: 4
+title: How to contribute
 site_nav_entry: true # this is an entry in the main site nav
 ---
 
-- TOC
-{:toc}
 
-The general architecture of ENSIME looks like this:
+Because of our policy of “pull request against Lightbend Scala first” the primary route to contributing to Typelevel Scala is by contributing to Lightbend Scala. The Lightbend Scala team have made huge advances in lowering the barrier to participation in compiler development recently, in large part due to a new SBT-based build, and [helpful documentation](https://github.com/scala/scala/blob/2.12.x/README.md) — the Scala distribution is now an SBT project which you can expect to work on in much the same way as any other github hosted FLOSS Scala project. [Miles Sabin](https://github.com/milessabin) has provided a write up (now slightly outdated) of the process [here](http://milessabin.com/blog/2016/05/13/scalac-hacking/).
 
-![architecture](/talks/scalasphere16/images/architecture.png)
+Because a pull request against [scala/scala](https://github.com/scala/scala) is the first step, to contribute you will need to sign the [Scala CLA](http://www.lightbend.com/contribute/cla/scala) and be willing to make your contributions under the [Scala License](https://github.com/scala/scala/blob/2.12.x/doc/LICENSE.md). Typelevel is strongly in favour of the currently Scala license/CLA (which requires contributors to grant a patent license but does not grant one in return) being replaced by the Apache 2.0 [license](http://www.apache.org/licenses/LICENSE-2.0) and [ICLA](https://www.apache.org/licenses/icla.txt) (which both requires and grants a patent license) as soon as is feasible. If you would like to contribute but are unable to sign the CLA please raise this issue on the [Lightbend](https://gitter.im/scala/contributors) and [Typelevel](https://gitter.im/typelevel/scala) gitter channels.
 
-which is explained in a recent [talk about ENSIME](/talks/scalasphere16/) by @rorygraves and @fommil. All our code is hosted at [github.com/ensime](https://github.com/ensime/).
+## Community
 
-## Where to Start
+Topics specific to Typelevel Scala are discussed on its [gitter channel](https://gitter.im/typelevel/scala). Scala compiler development is discussed on the [scala/contributors gitter channel](https://gitter.im/scala/contributors).
 
-The first thing to do is to decide what you want to contribute!
+People are expected to follow the [Typelevel Code of Conduct](http://typelevel.org/conduct.html) when discussing Typelevel Scala on the Github page, Gitter channel, or other venues.
 
-If you are looking for a small task to pick up, have a look at our [latest milestone on github](https://github.com/ensime/ensime-server/milestone/9).
+We hope that our community will be respectful, helpful, and kind. If you find yourself embroiled in a situation that becomes heated, or that fails to live up to our expectations, you should disengage and contact one of the [project maintainers](http://typelevel.org/scala/#maintainers) in private. We hope to avoid letting minor aggressions and misunderstandings escalate into larger problems.
 
-Anything with the **Low Hanging Fruit** or **Needs Reproduction** labels are suitable for a new contributor. Please contact us on the github issue directly if you want to contribute something: this avoids duplication of efforts, and also lets us discuss the best way to do it.
+If you are being harassed, please contact one of [us](http://typelevel.org/scala/#maintainers) immediately so that we can support you.
 
-We have regular [Hack Days in London](http://hackthetower.co.uk/). If you can set aside the time to join us, they are a fun and exciting way to contribute to ENSIME.
+## Maintainers
 
-If you can't come to a hack day but you'd really like to have some live help from somebody, please ask. We can use the libre software [meet.jit.si](https://meet.jit.si/) to screen share and discuss tickets anytime that is convenient.
+The current maintainers (people who can merge pull requests) are:
 
-If you'd like an ENSIME logo sticker for your laptop, let us know in your PR and privately email your postal address (or feel literally [free](http://www.gnu.org/philosophy/free-sw.en.html) to print your own, the logo is [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) and is not trademarked).
+* Erik Osheim ([@non](https://github.com/non))
+* George Leontiev ([@folone](https://github.com/folone))
+* Jon Pretty ([@propensive](https://github.com/propensive))
+* Lars Hupel ([@larsrh](https://github.com/larsrh))
+* Mike O’Connor ([@stew](https://github.com/stew))
+* Miles Sabin ([@milessabin](https://github.com/milessabin))
+* Tom Switzer ([@tixxit](https://github.com/tixxit))
 
-
-## Editors
-
-If you want to work on editor support for ENSIME there may be additional documentation at these locations:
-
-- [Emacs](/editors/emacs/contributing)
-- [Atom](/editors/atom/contributing)
-- [Visual Studio Code](/editors/vscode/contributing)
-- [Vim](/editors/vim/contributing)
-- [Sublime](/editors/sublime/contributing)
-
-If you want to add support for an editor not listed here, please get in touch at [gitter.im/ensime/ensime-server](https://gitter.im/ensime/ensime-server) and read the server documentation below to get an idea of what the API looks like.
-
-
-## Build Tools
-
-If you want to work on build tool support, there may be documentation at these locations:
-
-- [SBT](/build_tools/sbt#contributing)
-- [Maven](/build_tools/maven#contributing)
-- [Gradle](/build_tools/gradle#contributing)
-
-If you want to add support for a new build tool, the [manual `.ensime`](/build_tools/manual) instructions are a good place to start.
-
-
-## Scala Compiler and Refactoring
-
-Much of the Scala support of ENSIME is provided by [the scala compiler itself](https://github.com/scala/scala) (see also the [Typelevel fork of scalac](https://github.com/typelevel/scala)) and the [refactoring library](https://github.com/scala-ide/scala-refactoring). Scala IDE also uses these components and their documentation on accessing the [presentation compiler](http://scala-ide.org/docs/dev/architecture/presentation-compiler.html#scalapresentationcompiler) is recommended reading. We also recommend watching [a recent talk about scala-refactoring](https://twitter.com/mlangc/status/697322490482315264) by @mlangc.
-
-If you'd like to improve these components, you may wish to ask questions at [gitter.im/scala/contributors](https://gitter.im/scala/contributors), [gitter.im/typelevel/scala](https://gitter.im/typelevel/scala) and [gitter.im/scala-ide/scala-ide](https://gitter.im/scala-ide/scala-ide) respectively.
-
-Many problems (e.g. the infamous ["red squiggles on valid code"](https://github.com/ensime/ensime-server/issues/673)) may be incredibly difficult to solve in the compiler and we created [ensime/pcplod](https://github.com/ensime/pcplod) to help you create minimal examples of what is broken and to allow you to work with macro/plugin authors to fix the issues. If the problem appears to be a presentation compiler bug, you will need to fix the bug upstream.
-
-To hack on the scala compiler with ENSIME, make sure to apply the instructions documented in [build_tools/sbt](/build_tools/sbt/#customise).
-
-## Server
-
-The remainder of this document focuses on contributing to the server component, which is hosted at [github.com/ensime/ensime-server](https://github.com/ensime/ensime-server). If you pick up a ticket, please comment on it to let us know so that we can help (and also to avoid overlapping with somebody else). Feel free to ask questions on the github issue tracker or [gitter.im/ensime/ensime-server](https://gitter.im/ensime/ensime-server).
-
-The server API is documented in [org/ensime/api](https://github.com/ensime/ensime-server/tree/2.0/api/src/main/scala/org/ensime/api)
-with example JSON payloads in [org/ensime/jerky](https://github.com/ensime/ensime-server/blob/2.0/protocol-jerky/src/test/scala/org/ensime/jerky/JerkyFormatsSpec.scala). The preferred protocol for most editors is JSON over WebSockets, which we call our JERKY protocol. A legacy S-Expression over TCP protocol is used by Emacs (deriving from the SWANK protocol of [SLIME](https://github.com/slime/slime)), but ENSIME 2.0 will hopefully see us move to [S-Expressions over WebSockets](https://github.com/ensime/ensime-server/issues/1189), which we will call our SWANKY protocol.
-
-### Compiling and Tests
-
-Please make sure to install [sbt-extras](https://github.com/paulp/sbt-extras), otherwise project compilation will fail with a `java.lang.OutOfMemoryError` or `java.lang.StackOverflowError`. If you cannot install `sbt-extras` you must make sure to pass the flags in `.jvmopts` to your sbt process. Please vote for or fix [sbt#2161](https://github.com/sbt/sbt/issues/2161) to remove this requirement.
-
-We use Java 6 in our CI because we are part of the [community builds](https://github.com/scala/community-builds), but you should be able to use Java 7 for local development. Many of our tests are making assertions on classpath searches and some of our assumptions (such as method signatures and orderings of Java classes) may not be true for recent versions of Java. In ENSIME 2.0 we will move to [Java 7 and Java 8](https://github.com/ensime/ensime-server/issues/1118) in our CI.
-
-Before you start, run this SBT command on your `ensime-server` repository as the `.ensime` file is required to run the integration tests (even if you are not using ENSIME to hack on ENSIME).
-
-```
-sbt ensimeConfig
-```
-
-Don't forget to compile the integration tests as well as the tests, e.g.
-
-```
-sbt test:compile it:compile
-```
-
-The `.drone.yml` file documents the exact commands that we use during our CI and should serve as a good reference.
-
-### Implementing a Feature or Bugfix
-
-It all starts with a test. Find a test that is already testing something similar to what you want to achieve, and adapt it.
-
-We have several styles of tests: unit tests, in-memory source tests (e.g. [`RichPresentationCompilerSpec`](https://github.com/ensime/ensime-server/blob/master/core/src/it/scala/org/ensime/core/RichPresentationCompilerSpec.scala)), on-disk source tests (e.g. [`BasicWorkflow`](https://github.com/ensime/ensime-server/blob/master/core/src/it/scala/org/ensime/intg/BasicWorkflow.scala)) and the Emacs client tests. It may be instructive for you to read and understand some of these tests to get a feel for the right level to write your test.
-
-### Graphpocalypse Beta Testing
-
-Are you willing to help us bring new exciting features to ENSIME, or perhaps you enjoy using <s>unstable and bug-ridden</s> bleeding edge software?
-
-The `2.0-graph` is where [Andrey Sugak's Google Summer of Code](https://github.com/ensime/ensime-server/milestone/11) project is happening.
-
-First set up your developer version of the ensime client to track `2.0.0-graph-SNAPSHOT`, e.g. in Emacs `(setq ensime-server-version "2.0.0-graph-SNAPSHOT")`. Assembly jars are available from the usual location (see [Manual QA Testing](http://ensime.github.io/contributing/#manual-qa-testing) for instructions).
-
-The graph database needs direct memory, so you should add something like this to your `~/.sbt/0.13/global.sbt` to ensure that all your projects can support it:
-
-```scala
-org.ensime.Imports.EnsimeKeys.ensimeJavaFlags += "-XX:MaxDirectMemorySize=4g"
-```
-
-We want your feedback! Get in touch the [ensime-server gitter room](https://gitter.im/ensime/ensime-server) and direct your comments to `@sugakandrey`.
-
-
-### Guidelines
-
-We do not have any official style guide. Code formatting is enforced by scalariform. When in doubt, prefer functional idioms encouraged by [Typelevel](http://typelevel.org) such as referential transparency, [typeclass derivation](https://github.com/fommil/shapeless-for-mortals) and immutable data structures. We made a huge mistake depending on akka and we would like to [fix that by replacing it](https://github.com/ensime/ensime-server/issues/1351).
-
-Note that many functional styles of programming [introduce huge memory overheads](https://skillsmatter.com/skillscasts/6939-optimising-scala-for-fun-and-profit) and we have several critical paths where we cannot afford to trade style over performance. We encourage *locally scoped* mutability if it improves performance and / or readability. We integrate with several heavily mutable external systems, such as the ASM classpath visitor, file systems, databases and the compiler APIs, so we try to be pragmatic.
-
-Because we are at the forefront of the development cycle for new versions of Scala, we prefer to restrict our usage of external scala libraries. Therefore, please prefer Java dependencies where possible.
-
-### Manual QA Testing
-
-If an `-assembly.jar` file exists in your `.emacs.d/ensime`, `.atom/packages/Ensime` or `.config/ensime-vim` directory (for the expected binary version of scala and ENSIME) then it will be used in preference to the `sbt` auto-update procedure. This is advantageous for developing on ENSIME and also to enable a simple install of the ENSIME server in restricted environments. SNAPSHOT assembly jars are provided at <http://ensime.typelevel.org/> (with many thanks to Typelevel for the use of their servers).
-
-To build your own server jars, do this:
-
-```
-git clone https://github.com/ensime/ensime-server.git
-sbt ++2.10.6 ensime/assembly # replace with your version of scala
-cp target/scala-2.10/ensime_2.10-0.9.10-SNAPSHOT-assembly.jar ~/.emacs.d/ensime/
-```
-
-When you want to swap back to using official releases, delete your `-assembly.jar` files.
-
-You can also `sbt publishLocal` but make sure you clean up your `~/.ivy2/local` afterwards.
-
-When using `sbt publishLocal` for the first time make sure to remove a cached classpath file in your `.emacs.d/ensime`, `.atom/packages/Ensime` or `.config/ensime-vim` directory (for the expected binary version of scala and ENSIME) if it exists. It will be recreated automatically with new ensime location pointing to `~/.ivy2/local` directory. Make sure to do the same things aftewards.

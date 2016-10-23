@@ -1,23 +1,45 @@
-# ENSIME Documentation
+# Typelevel Scala Compiler Documentation
 
-The consolidated documentation for ENSIME: ENhanced Scala Interaction Mode for text Editors.
+The consolidated documentation for Typelevel Scala compiler.
+
+Based on Ensime documentation (see: http://ensime.github.io/)
+
+## TODO
+
+Pending tasks:
+
+* add proper icons for different platforms (see git history under `public`` and `public/favicons` or same folders in Ensime documentation for reference). Also need to edit `_includes/head.html` to fix the links.
+* edit `_layouts/page.html`, `_layouts/homepage.html`, and `_layouts/section.html` to point the *edit* link to the proper path. Can't be done until this project has a final home :)
+* decide where will it be stored (gh-pages, other?) to create bash script for easy publication of changes.
+* add more documentation!
 
 ## Setup
 
-Requirements: Ruby, and Bundler (`gem install bundler`)
+### Requirements
 
-To view locally:
+This documentation uses [Jekyll](https://jekyllrb.com/), a Ruby static website generator.
 
-* `bundle install` installs the required gems into `bundle-vendor/bundle`.
-* `bundle exec jekyll server [--watch]` starts the server (watching for changes with `--watch`).
+To install Ruby we recommend to use [RVM](https://rvm.io/rvm/install) for your platform
 
-## Hack
+Then install Bundler (`gem install bundler`)
+
+### Local deployment
+
+To run the documentation locally execute `bin/run.sh`. This will update your gems and run Jekyll in `watch` mode, 
+which means it will detect any changes to the pages and reload automatically.
+
+Then load `http://127.0.0.1:4000/` to see the blog.
+
+## Hack the theme
+
+This site uses the Jekyll theme [Hyde](http://hyde.getpoole.com/) by [@mdo](http://hyde.getpoole.com/). 
+More information about the theme [in its official page](http://hyde.getpoole.com/)
 
 ### Update the gems
 
 Make sure they match the [versions](https://pages.github.com/versions/) GitHub Pages uses.
 
-### Update the base theme:
+### Update the base theme
 
 ```
 git remote add hyde git@github.com:poole/hyde.git

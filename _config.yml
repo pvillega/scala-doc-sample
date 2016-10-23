@@ -12,8 +12,8 @@ kramdown:
 permalink:        pretty
 
 # Setup
-title:            ENSIME
-description:      '<b>EN</b>hanced <b>S</b>cala &amp; java <b>I</b>nteraction <b>M</b>ode for text <b>E</b>ditors'
+title:            Typelevel Scala
+description:      'Typelevel fork of the Scala Compiler'
 baseurl:          /
 
 #exclude: [talks]
