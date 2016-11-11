@@ -8,7 +8,6 @@ Based on Ensime documentation (see: http://ensime.github.io/)
 
 Pending tasks:
 
-* add proper icons for different platforms (see git history under `public`` and `public/favicons` or same folders in Ensime documentation for reference). Also need to edit `_includes/head.html` to fix the links.
 * edit `_layouts/page.html`, `_layouts/homepage.html`, and `_layouts/section.html` to point the *edit* link to the proper path. Can't be done until this project has a final home :)
 * decide where will it be stored (gh-pages, other?) to create bash script for easy publication of changes.
 * add more documentation!
