@@ -7,15 +7,15 @@ site_nav_entry: true # this is an entry in the main site nav
 
 There are just two requirements for using Typelevel Scala in your existing projects,
 
-* You must be using (or be able to switch to) a corresponding version of Lightbend Scala. Currently this is 2.11.8 with 2.12.0-RC1 expected as soon as it is released by Lightbend.
-* You must be using (or be able to switch to) SBT 0.13.13-RC2 or later. Earlier versions of SBT don’t have full support for using an alternative `scalaOrganization`.
+* You must be using (or be able to switch to) a corresponding version of Lightbend Scala. Currently this is 2.11.8 and 2.12.0.
+* You must be using (or be able to switch to) SBT 0.13.13 or later. Earlier versions of SBT don’t have full support for using an alternative `scalaOrganization`.
 
-If you are using Lightbend Scala 2.11.8 and SBT 0.13.x the following steps will build your project with Typelevel Scala,
+If you are using Lightbend Scala 2.11.8 or 2.12.0 and SBT 0.13.13 the following steps will build your project with Typelevel Scala,
 
-* Update your `project/build.properties` to require SBT 0.13.13-RC2,
+* Update your `project/build.properties` to require SBT 0.13.13,
 
 	```scala
-	sbt.version=0.13.13-RC2
+	sbt.version=0.13.13
 	```
 
 * Add the following to your `build.sbt` immediately next to where you set `scalaVersion`,
@@ -73,6 +73,39 @@ foo: [F[_], A](fa: F[A])String
 
 scala> foo((x: Int) => x*2)   // Function1[Int, Int] unifies with F[_]
 res1: String = <function1>
+```
+
+## Try Typelevel Scala with an Ammonite instant REPL
+
+The quickest way to get to a Typelevel Scala 2.11.8 REPL path is to run the provided [“try Typelevel Scala”](https://github.com/typelevel/scala/blob/typelevel-readme/try-typelevel-scala.sh) script, which has no dependencies other than an installed JDK. This script downloads and installs [coursier](https://github.com/alexarchambault/coursier) and uses it to fetch the [Ammonite REPL](https://github.com/lihaoyi/Ammonite) and Typelevel Scala 2.11.8. It then drops you immediately into a REPL session,
+
+```scala
+% curl -s https://raw.githubusercontent.com/typelevel/scala/typelevel-readme/try-typelevel-scala.sh | bash
+Loading...
+Compiling predef.sc
+Compiling SharedPredef.sc
+Compiling LoadedPredef.sc
+Welcome to the Ammonite Repl 0.7.8
+(Scala 2.11.8 Java 1.8.0_112)
+@ repl.compiler.settings.YliteralTypes.value = true
+
+@ trait Cond[T] { type V ; val value: V }
+defined trait Cond
+@
+@ implicit val condTrue = new Cond[true] { type V = String ; val value = "foo" }
+condTrue: AnyRef with Cond[true]{type V = String} = $sess.cmd2$$anon$1@22265a2d
+@ implicit val condFalse = new Cond[false] { type V = Int ; val value = 23 }
+condFalse: AnyRef with Cond[false]{type V = Int} = $sess.cmd3$$anon$1@606ab048
+@
+@ def cond[T](implicit cond: Cond[T]): cond.V = cond.value
+defined function cond
+@
+@ cond[true] : String
+res8: String = "foo"
+@ cond[false] : Int
+res7: Int = 23
+@ Bye!
+%
 ```
 
 If you are interested, you are invited to read our [Contributing Guide](/contributing) and jump in.

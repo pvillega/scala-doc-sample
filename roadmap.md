@@ -15,6 +15,7 @@ The following are high priority issues for Typelevel projects on which progress 
 * GADT and singleton type bugfixes.
 * Literal syntax for Byte and Short types.
 * Support for alternative `scala.Predef`.
-* In accordance with the policy for inclusion contributions on these issues will be made as pull requests against Lightbend Scala in the first instance.
+
+In accordance with the policy for inclusion contributions on these issues will be made as pull requests against Lightbend Scala in the first instance.
 
 If you are interested, you are invited to read our [Contributing Guide](/contributing) and jump in.
