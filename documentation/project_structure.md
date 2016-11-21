@@ -58,3 +58,59 @@ The following folders and files can be ignored when you start working with the S
 * **META-INF**: contains Manifest file for the project
 * **project**: contains helpers for the Scala build configuration. The project is using a standard `build.sbt` file, located at the root of the project
 * **scripts**: used for CI 
+
+
+## Compiler's Build Process
+
+One of the first tasks you want to do is to build the compiler, as a full compile from scratch may take a while. This will allow you to work with the compiler codebase using incremental compilation, which will reduce the build times substantially.
+
+Compiling the project has no mystery, as we are working with a standard [SBT project](http://www.scala-sbt.org/). This means you want to open a terminal at the root of the project and run `sbt`:
+
+```scala
+$ sbt
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+[info] Loading global plugins from /Users/villegap/.sbt/0.13/plugins
+[info] Loading project definition from /Users/villegap/Dropbox/Projectes/typelevel-scala/project/project
+[info] Loading project definition from /Users/villegap/Dropbox/Projectes/typelevel-scala/project
+[info] Updating {file:/Users/villegap/Dropbox/Projectes/typelevel-scala/project/}typelevel-scala-build...
+[info] Resolving org.fusesource.jansi#jansi;1.4 ...
+[info] Done updating.
+[info] *** Welcome to the sbt build definition for Scala! ***
+[info] Check README.md for more information.
+> 
+```
+
+Note the output above corresponds to my local version at the time of this entry, yours may vary accordingly. 
+
+Once in `sbt`, run `compile`. The first time this may take several minutes, depending on your computer specifications.
+
+```scala
+> compile
+[info] Updating {file:/Users/villegap/Dropbox/Projectes/typelevel-scala/}library...
+[info] Updating {file:/Users/villegap/Dropbox/Projectes/typelevel-scala/}root...
+[info] Updating {file:/Users/villegap/Dropbox/Projectes/typelevel-scala/}bootstrap...
+[info] Done updating.
+[info] Resolving org.scala-lang#scala-library;2.12.0-M5 ...
+
+[... several entries more where sbt resolves dependencies ...]
+[warn] there were 38 deprecation warnings (since 2.10.0)
+[warn] there were 25 deprecation warnings (since 2.11.0)
+[warn] there were 45 deprecation warnings (since 2.12.0)
+[warn] there were 10 deprecation warnings (since 2.12.0-M2)
+[warn] there were 118 deprecation warnings in total; re-run with -deprecation for details
+[warn] 5 warnings found
+[info] Compiling 157 Scala sources to /Users/villegap/Dropbox/Projectes/typelevel-scala/build/quick/classes/reflect...
+
+[... more deprecation warnings and compilation of other source files ...]
+[info] /Users/villegap/Dropbox/Projectes/typelevel-scala/test/junit/scala/tools/testing/ClearAfterClass.java: /Users/villegap/Dropbox/Projectes/typelevel-scala/test/junit/scala/tools/testing/ClearAfterClass.java uses unchecked or unsafe operations.
+[info] /Users/villegap/Dropbox/Projectes/typelevel-scala/test/junit/scala/tools/testing/ClearAfterClass.java: Recompile with -Xlint:unchecked for details.
+[warn] there was one deprecation warning (since 2.10.0)
+[warn] there were two deprecation warnings (since 2.10.1)
+[warn] there were 15 deprecation warnings (since 2.11.0)
+[warn] there were three deprecation warnings (since 2.11.8)
+[warn] there were 21 deprecation warnings in total; re-run with -deprecation for details
+[warn] 5 warnings found
+[success] Total time: 263 s, completed 21-Nov-2016 18:51:37
+```
+
+Once it finishes, you are ready to start hacking the compiler. For more information on the initial compilation you may want to read [Miles Sabin's post](https://milessabin.com/blog/2016/05/13/scalac-hacking/) on working with the compiler, if you haven't already.

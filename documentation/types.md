@@ -1,9 +1,9 @@
 ---
 layout: page
-title: The Symbol Table
+title: Types
 site_nav_entry: false
 ---
 
-The SymbolTable/Global 
+Types in scalac
 
 WIP

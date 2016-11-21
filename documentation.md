@@ -8,17 +8,17 @@ site_nav_entry: true # this is an entry in the main site nav
 So you want to work in the Typelevel compiler, but don't know where to start? Don't worry, you have come to the right place.
 
 * [Project folder structure](/documentation/project_structure)
-* [Using your own compiler](/documentation/using_your_own)
 * [Basic structure of the Scala Compiler](/documentation/basic_structure)
-* [Understanding the Build Process](/documentation/build_process)	
-* [How to test the compiler](/documentation/testing_compiler)
-* [How to profile the compiler](/documentation/profiling_compiler)
+* [How to test your fix or feature](/documentation/testing_compiler)
+* [Using your own compiler](/documentation/using_your_own)
 
 If you are looking at more technical aspects of the compiler, you may want to read about:
 
 * [Compiler phases](/documentation/phases)
-* [The AST](/documentation/ast)
-* [The Symbol Table](/documentation/symbol_table)
+* [Trees](/documentation/trees)
+* [Symbols](/documentation/symbols)
+* [Types](/documentation/types)
+* [How to profile the compiler](/documentation/profiling_compiler)
 
 ## Additional information
 
